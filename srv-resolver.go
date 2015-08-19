@@ -52,20 +52,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	f, err := os.Create("./redis.conf")
-	if err != nil {
-		fmt.Println("error:", err)
-		os.Exit(1)
-	}
-
-	defer f.Close()
-	_, err = f.WriteString(fmt.Sprintf("slaveof %s %s", records[0].IP, records[0].Port))
-	f.Sync()
-
-	if err != nil {
-		fmt.Println("error:", err)
-		os.Exit(1)
-	}
-
+	fmt.Printf("%s %s", records[0].IP, records[0].Port)
 	os.Exit(0)
 }
